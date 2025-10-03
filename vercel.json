@@ -2,6 +2,7 @@
   "version": 2,
   "name": "serenitycareai",
   "public": true,
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
