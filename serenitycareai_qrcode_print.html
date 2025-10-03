@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SerenityCare AI - High-Res QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .qr-print-container {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        #qrcode {
+            margin: 0 auto;
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .qr-print-container {
+                padding: 0;
+                page-break-after: always;
+            }
+            
+            .no-print {
+                display: none;
+            }
+            
+            .print-only {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="qr-print-container">
+        <div id="qrcode"></div>
+        
+        <div class="print-only">
+            <p style="margin-top: 20px; font-size: 16px; color: #0A1E42;">
+                Scan to connect with SerenityCare AI
+            </p>
+        </div>
+        
+        <div class="no-print" style="margin-top: 30px;">
+            <button onclick="window.print()" style="
+                background: #0A1E42;
+                color: white;
+                padding: 15px 30px;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 18px;
+                border: 2px solid #D4AF37;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            ">
+                🖨️ Print High-Res QR Code
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Generate high-resolution QR Code (1000x1000px) with highest error correction
+        document.addEventListener('DOMContentLoaded', function() {
+            new QRCode(document.getElementById("qrcode"), {
+                text: "https://wa.me/2347026743998?text=Hello%20SerenityCare%20AI,%20I%20need%20support",
+                width: 1000,
+                height: 1000,
+                colorDark: "#0A1E42",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H  // Highest error correction (30%)
+            });
+        });
+    </script>
+</body>
+</html>

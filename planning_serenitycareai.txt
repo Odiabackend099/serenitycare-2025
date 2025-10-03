@@ -1,0 +1,274 @@
+# SerenityCare AI - Implementation Plan
+
+## Project Overview
+**Product:** SerenityCare AI - WhatsApp-based AI assistant for Serenity Royale Hospital
+**Purpose:** 24/7 mental health support and information access
+**Target:** Nigerian users seeking mental health resources
+**Domain:** serenitycareai.odia.dev
+
+---
+
+## Brand Identity
+- **Name:** SerenityCare AI
+- **Tagline:** "Yes to Life"
+- **Hospital:** Serenity Royale Hospital (Mental Health & Addiction Treatment)
+- **Location:** Abuja, Nigeria
+- **Colors:** 
+  - Navy Blue (#0A1E42) - Primary from logo
+  - Gold (#D4AF37) - Secondary from logo
+  - White (#FFFFFF) - Primary background
+  - Accent: Teal/Turquoise for trust & calm
+- **Tone:** Professional, empathetic, reassuring, accessible
+
+---
+
+## Implementation Phases
+
+### **Phase 1: Landing Page Development**
+**Objective:** Create a professional, conversion-focused landing page
+
+**Technical Stack:**
+- HTML5 + Tailwind CSS (via CDN)
+- Vanilla JavaScript (no external dependencies except QR library)
+- QRCode.js for dynamic QR generation
+- Responsive design (mobile-first)
+
+**Page Sections:**
+1. **Hero Section**
+   - Hospital logo
+   - Bold headline: "SerenityCare AI: Your 24/7 Mental Health Companion"
+   - Tagline: "Yes to Life"
+   - Primary CTA: "Start Conversation on WhatsApp"
+   - QR Code (scannable)
+   - Secondary CTA: Phone number with click-to-chat
+
+2. **Features Section**
+   - Multi-modal support icons (voice, text, image, PDF)
+   - 24/7 availability
+   - Confidential & secure
+   - Expert-backed responses
+   - Instant access to resources
+
+3. **How It Works**
+   - Step 1: Scan QR or click link
+   - Step 2: Send your message (any format)
+   - Step 3: Get instant AI-powered support
+
+4. **About Section**
+   - Brief about Serenity Royale Hospital
+   - Mental health & addiction treatment focus
+   - Team of specialist consultants
+
+5. **FAQ Section**
+   - What is SerenityCare AI?
+   - Is it free?
+   - How do I start?
+   - Is my information private?
+   - Can AI replace therapy?
+
+6. **Footer**
+   - Contact: +234 702 674 3998
+   - Website: serenityroyalehospital.com
+   - Social media links
+   - Disclaimer
+
+**Design Principles:**
+- Clean, calming aesthetic (mental health context)
+- High contrast for accessibility
+- Smooth animations (subtle, not distracting)
+- Mobile-optimized (most users will be on phones)
+- Fast loading (< 2 seconds)
+
+---
+
+### **Phase 2: Promotional Graphics**
+
+#### **2A: A4 Poster**
+**Format:** 210mm x 297mm (A4), 300 DPI
+**Purpose:** Print distribution at hospital, clinics, community centers
+**File Type:** High-res PNG + PDF
+
+**Design Elements:**
+- Large QR code (center or top-right)
+- Hospital logo (top-left)
+- Bold headline
+- Key features (bullet points with icons)
+- WhatsApp number (large, easy to type)
+- "Scan or text to start" instruction
+- Visual: Calming imagery (abstract shapes, not clinical)
+
+#### **2B: Instagram Post**
+**Format:** 1080px x 1080px (square), 72 DPI
+**Purpose:** Social media promotion
+**File Type:** PNG
+
+**Design Elements:**
+- Eye-catching gradient background
+- Hospital logo
+- "SerenityCare AI" branding
+- QR code
+- "Link in bio" or "Swipe up" CTA
+- WhatsApp icon + number
+- Tagline: "Yes to Life"
+
+---
+
+### **Phase 3: QR Code Generation**
+
+**Technical Requirements:**
+- QR Code links to: `https://wa.me/2347026743998`
+- Include custom message parameter: `?text=Hello%20SerenityCare%20AI`
+- Format: SVG (scalable) + PNG (high-res for print)
+- Error correction: Level H (30% - highest, for logo embedding)
+- Size: 300x300px minimum, 1000x1000px for print
+
+**Integration Points:**
+- Embedded in landing page (dynamic generation)
+- Standalone downloadable file
+- Integrated into poster design
+- Integrated into Instagram graphic
+
+---
+
+## Technical Requirements
+
+### Landing Page
+**Dependencies:**
+```html
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- Lucide Icons (optional for icons) -->
+<script src="https://unpkg.com/lucide@latest"></script>
+```
+
+**WhatsApp Link Format:**
+```
+https://wa.me/2347026743998?text=Hello%20SerenityCare%20AI,%20I%20need%20support
+```
+
+**Responsive Breakpoints:**
+- Mobile: < 640px
+- Tablet: 640px - 1024px
+- Desktop: > 1024px
+
+### Graphics
+**Tools:**
+- HTML Canvas API (for dynamic generation)
+- Programmatic design using HTML/CSS (exportable as image)
+
+**Export Requirements:**
+- A4 Poster: 2480 x 3508 pixels (300 DPI)
+- Instagram: 1080 x 1080 pixels
+
+---
+
+## Testing Criteria
+
+### Phase 1: Landing Page
+**Functional Tests:**
+- [ ] QR code generates correctly
+- [ ] WhatsApp link opens correctly on mobile
+- [ ] WhatsApp link opens correctly on desktop (WhatsApp Web)
+- [ ] All CTAs are clickable and functional
+- [ ] Phone number is clickable on mobile (tel: link)
+
+**Responsive Tests:**
+- [ ] Layout adapts properly on mobile (320px - 480px)
+- [ ] Layout adapts properly on tablet (768px - 1024px)
+- [ ] Layout adapts properly on desktop (1920px)
+- [ ] Images scale appropriately
+- [ ] Text remains readable at all sizes
+
+**Performance Tests:**
+- [ ] Page loads in < 2 seconds on 3G
+- [ ] Images are optimized
+- [ ] No layout shift (CLS score)
+
+**Accessibility Tests:**
+- [ ] Color contrast meets WCAG AA (4.5:1 minimum)
+- [ ] All interactive elements keyboard-accessible
+- [ ] Screen reader friendly (semantic HTML)
+- [ ] Focus indicators visible
+
+### Phase 2: Graphics
+**Quality Tests:**
+- [ ] A4 poster exports at 300 DPI
+- [ ] QR code is scannable when printed
+- [ ] Text is legible at actual print size
+- [ ] Colors match brand guidelines
+- [ ] Instagram graphic meets platform specs (1080x1080)
+
+**Brand Consistency:**
+- [ ] Logo placement consistent
+- [ ] Color palette matches brand
+- [ ] Typography consistent
+- [ ] Tagline included
+
+### Phase 3: QR Code
+**Functional Tests:**
+- [ ] QR code scans successfully on iOS
+- [ ] QR code scans successfully on Android
+- [ ] Opens WhatsApp with pre-filled message
+- [ ] Works with damaged/partial scan (error correction)
+
+---
+
+## Success Metrics
+- Landing page conversion rate (clicks to WhatsApp)
+- QR code scan rate
+- Social media engagement (Instagram post)
+- Poster distribution reach
+
+---
+
+## Phase Completion Checklist
+
+### Phase 1: Landing Page ✅
+- [x] HTML structure complete
+- [x] All sections implemented
+- [x] Responsive design tested
+- [x] QR code functional
+- [x] WhatsApp link tested
+- [x] Performance optimized
+- [x] Accessibility verified
+
+### Phase 2: Graphics ✅
+- [x] A4 poster designed
+- [x] A4 poster exported (PNG + PDF)
+- [x] Instagram post designed
+- [x] Instagram post exported
+- [x] Brand consistency verified
+
+### Phase 3: QR Code ✅
+- [x] QR code generated
+- [x] SVG version created
+- [x] High-res PNG created
+- [x] Scan testing complete
+- [x] Files delivered
+
+---
+
+## Deployment
+
+**Landing Page:**
+- Host on serenitycareai.odia.dev
+- Ensure SSL certificate active
+- Test on deployment environment
+
+**Graphics:**
+- Deliver via zip file
+- Include print-ready PDFs
+- Include web-optimized versions
+
+---
+
+## Notes
+- Mental health context requires sensitive, empathetic messaging
+- Emphasize confidentiality and professional backing
+- Avoid clinical/sterile design - aim for warm, approachable
+- WhatsApp is preferred platform in Nigeria - leverage familiarity
+- Include disclaimer that AI is supplementary, not replacement for professional care
