@@ -1,0 +1,24 @@
+{
+  "name": "serenitycareai",
+  "version": "1.0.0",
+  "description": "SerenityCare AI - 24/7 Mental Health Support on WhatsApp for Nigerian users",
+  "keywords": [
+    "mental health",
+    "WhatsApp",
+    "AI assistant",
+    "Nigeria",
+    "healthcare",
+    "Serenity Royale Hospital"
+  ],
+  "author": "Serenity Royale Hospital",
+  "license": "MIT",
+  "homepage": "https://serenitycareai.odia.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Odiabackend099/serenitycare-2025.git"
+  },
+  "scripts": {
+    "start": "echo 'This is a static HTML site - no build required'",
+    "build": "echo 'Static site - no build process needed'"
+  }
+}
