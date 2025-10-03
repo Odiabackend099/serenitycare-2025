@@ -13,6 +13,14 @@
     <meta name="author" content="Serenity Royale Hospital">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
+    <meta name="application-name" content="SerenityCare AI">
+    <meta name="theme-color" content="#0A1E42">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="SerenityCare">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="display-mode" content="standalone">
+    <meta name="color-scheme" content="light dark">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://serenitycareai.odia.dev/">
@@ -52,8 +60,13 @@
     <meta name="rating" content="general">
     <meta name="format-detection" content="telephone=yes">
     
-    <!-- Favicon -->
+    <!-- Favicon & PWA Icons -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230A1E42' width='32' height='32' rx='6'/%3E%3Ctext x='16' y='22' font-family='serif' font-size='20' fill='%23D4AF37' text-anchor='middle' font-weight='bold'%3ESR%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="mask-icon" href="/icons/icon-512.svg" color="#0A1E42">
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -457,6 +470,21 @@
                 colorDark: "#0A1E42",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Register service worker for PWA capabilities
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            }
+
+            window.addEventListener('appinstalled', () => {
+                console.log('SerenityCare AI has been installed as a PWA.');
             });
         });
     </script>

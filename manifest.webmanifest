@@ -1,0 +1,77 @@
+{
+  "id": "/",
+  "name": "SerenityCare AI",
+  "short_name": "SerenityCare",
+  "description": "24/7 mental health support on WhatsApp powered by Serenity Royale Hospital.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "background_color": "#0A1E42",
+  "theme_color": "#0A1E42",
+  "orientation": "portrait",
+  "categories": ["health", "medical", "productivity"],
+  "lang": "en-NG",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start WhatsApp Chat",
+      "short_name": "Chat",
+      "description": "Open WhatsApp with SerenityCare AI pre-filled message",
+      "url": "https://wa.me/2347026743998?text=Hello%20SerenityCare%20AI,%20I%20need%20support",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Scan QR Code",
+      "short_name": "QR Code",
+      "description": "View the standalone SerenityCare AI QR code",
+      "url": "/serenitycareai_qrcode.html",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

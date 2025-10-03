@@ -74,6 +74,7 @@ All files have been tested for:
 - QR code functionality with error correction
 - WhatsApp link integration with pre-filled messages
 - Cross-browser compatibility
+- Progressive Web App (PWA) install support and offline fallback page
 
 ## Branding Compliance
 
@@ -86,3 +87,18 @@ All deliverables follow the specified branding guidelines:
 ## Deployment
 
 The landing page is ready to be hosted at serenitycareai.odia.dev with SSL certificate.
+
+## Progressive Web App (PWA)
+
+SerenityCare AI now supports installation as a PWA on compatible browsers:
+
+- **Manifest:** `manifest.webmanifest` defines app metadata, icons, shortcuts, and theme colors.
+- **Service Worker:** `service-worker.js` precaches critical assets, provides offline fallback (`offline.html`), and caches the landing page plus promo assets.
+- **Icons:** Optimized icons live in `icons/` (PNG + SVG + maskable) for Android/iOS home screens.
+- **Install Prompt:** Browsers can install SerenityCare AI for quick access; offline users see a branded fallback screen.
+
+### Testing PWA Locally
+- Serve via HTTPS-equivalent (e.g., `vercel dev`, `npx serve` with `--ssl`, or Vercel preview).
+- Open DevTools → Application → Manifest to confirm PWA installability.
+- Use Lighthouse PWA audit to verify best practices (e.g., service worker, manifest, HTTPS).
+- Toggle offline in DevTools → Network to confirm `offline.html` displays.
